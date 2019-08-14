@@ -3,6 +3,8 @@ function onLoad() {
     var totalPoints = 16;
     var currentPoints = 0;
     
+    $('#points').html("Points Remaining: "+totalPoints);
+
     Object.keys(variables['Weapons']).forEach( i => {
         $('[id^=DropWeapons]').append($('<option>', {
             value: variables['Weapons'][i],
@@ -20,8 +22,9 @@ function onLoad() {
             type: 'checkbox',
             name: i,
             value: variables['Perks'][i],
-            id: "CheckPerk" + i
-        })).append(i + " ["+ variables['Perks'][i].toString() + "]<br>");
+            id: "CheckPerk" + i,
+            class: "checks"
+        }).append()).append(i + " ["+ variables['Perks'][i].toString() + "]<br>");
     });
 
     currentPoints = totalPoints;
@@ -38,7 +41,7 @@ function onLoad() {
             }
         });
         currentPoints = totalPoints - spendingPoints;
-        // console.log(currentPoints);
+        $('#points').html("Points Remaining: "+currentPoints);
         $('[id^=Drop] > option').each(function() {
             if(this.value > currentPoints){
                 $('[id^=Drop] option[value='+this.value+']').prop('disabled', true);
@@ -49,7 +52,9 @@ function onLoad() {
         })
         $('input[type=checkbox]').each(function () {
             if(this.value > currentPoints){
-                $(this).attr("disabled", true);
+                if (!this.checked) {
+                    $(this).attr("disabled", true);
+                }
             }
             else {
                 $(this).attr("disabled", false);
