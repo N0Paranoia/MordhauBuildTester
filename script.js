@@ -24,7 +24,7 @@ function onLoad() {
             value: variables['Perks'][i],
             id: "CheckPerk" + i,
             class: "checks"
-        }).append()).append(i + " ["+ variables['Perks'][i].toString() + "]<br>");
+        })).append(i + " ["+ variables['Perks'][i].toString() + "]<br>");
     });
 
     currentPoints = totalPoints;
@@ -54,6 +54,7 @@ function onLoad() {
             if(this.value > currentPoints){
                 if (!this.checked) {
                     $(this).attr("disabled", true);
+                    $(this).css('color','red');
                 }
             }
             else {
