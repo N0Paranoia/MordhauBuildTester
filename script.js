@@ -1,8 +1,9 @@
+var peasantEnabled = false;
 
 function onLoad() {  
     var totalPoints = 16;
     var currentPoints = 0;
-    var peasantEnabled = false;
+
     
     $('#points').html("Points Remaining: "+totalPoints);
 
@@ -29,6 +30,11 @@ function onLoad() {
         })).append(i + " ["+ variables['Perks'][i]['value'].toString() + "]<br>");
     });
 
+    $('[id^=Drop] > option').each(function() {
+        if(this.id == "Peasant") {
+            $('[id^=DropWeapon] option[id=Peasant]').prop('disabled', true);
+        }
+    });
     currentPoints = totalPoints;
 
 
@@ -50,13 +56,17 @@ function onLoad() {
             if(this.value > currentPoints){
                 $('[id^=Drop] option[value='+this.value+']').prop('disabled', true);
             }
-            else if(this.id != "none") {
-                $('[id^=DropWeapon] option[id=Peasant]').prop('disabled', true);
-            }
             else {
                 $('[id^=Drop] option[value='+this.value+']').prop('disabled', false);
             }
         })
+
+        $('[id^=Drop] > option').each(function() {
+            if(this.id == "Peasant" && peasantEnabled == false) {
+                $('[id^=DropWeapon] option[id=Peasant]').prop('disabled', true);
+            }
+        });
+
         $('input[type=checkbox]').each(function () {
             if(this.value > currentPoints){
                 if (!this.checked) {
@@ -67,7 +77,7 @@ function onLoad() {
                 $(this).attr("disabled", false);
             }
             if(this.name == "Peasant"){
-                console.log("eafasfdsafda");
+                peasantEnabled  = !peasantEnabled;
             }
         });
     }
