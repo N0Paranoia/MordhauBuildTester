@@ -246,19 +246,15 @@ var variables = {
     "Armor" : {
         "none" : {
             "value" : 0,
-            "Peasant" : false,
         }, 
         "light" : {
             "value" : 1,
-            "Peasant" : false,
         }, 
         "medium" : {
             "value" : 2,
-            "Peasant" : false,
         }, 
         "heavy" : {
             "value" : 3,
-            "Peasant" : false,
         }, 
     },
     "Perks" : {
