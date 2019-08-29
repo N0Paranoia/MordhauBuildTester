@@ -304,11 +304,11 @@ var variables = {
         },
         "Huntsman" : {
             "name" : "Huntsman",
-            "value" : 2,
+            "value" : 1,
         },
         "Ranger" : {
             "name" : "Ranger",
-            "value" : 2,
+            "value" : 1,
         },
         "Rat" : {
             "name" : "Rat",
