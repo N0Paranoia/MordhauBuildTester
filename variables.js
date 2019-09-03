@@ -246,16 +246,16 @@ var variables = {
     "Armor" : {
         "none" : {
             "value" : 0,
-        }, 
+        },
         "light" : {
             "value" : 1,
-        }, 
+        },
         "medium" : {
             "value" : 2,
-        }, 
+        },
         "heavy" : {
             "value" : 3,
-        }, 
+        },
     },
     "Perks" : {
         "Acrobat" : {
@@ -296,7 +296,7 @@ var variables = {
         },
         "Flesh Wound" : {
             "name" : "Flesh Wound",
-            "value" : 2,
+            "value" : 3,
         },
         "Fury" : {
             "name" : "Fury",
